@@ -1,15 +1,9 @@
-const button = document.querySelector('button');
-const letter = document.getElementById('letter');
-const message = document.getElementById('message');
+const container = document.querySelector('.hearts-container');
 
-button.addEventListener('click', () => {
-  // Lấy nội dung lời nhắn từ ô input
-  const input = document.getElementById('input-message');
-  const msg = input.value;
-  
-  // Hiển thị phần tử đang ẩn
-  letter.classList.remove('hidden');
-  
-  // Hiển thị nội dung lời nhắn trong phần tử <p>
-  message.textContent = msg;
-});
+for (let i = 0; i < 10; i++) {
+  const heart = document.createElement('div');
+  heart.classList.add('heart');
+  heart.style.top = `${Math.random() * 100}%`;
+  heart.style.left = `${Math.random() * 100}%`;
+  container.appendChild(heart);
+}

@@ -1,107 +1,37 @@
-:root {
-    --main-color: #ff007f;
-    --secondary-color: #ff8a9a;
-    --bg-color: #fcf6f8;
+body {
+  margin: 0;
+  padding: 0;
+  background-color: black;
+}
+
+.hearts-container {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.heart {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  background-image: url('heart.png');
+  background-size: cover;
+  animation-name: heart-float;
+  animation-duration: 3s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}
+
+@keyframes heart-float {
+  0% {
+    transform: translateX(0) translateY(0);
   }
-  
-  body {
-    background-color: var(--bg-color);
-    font-family: 'Montserrat', sans-serif;
-    font-size: 1.2rem;
+  50% {
+    transform: translateX(100px) translateY(-200px);
   }
-  
-  .container {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 50px;
-    text-align: center;
+  100% {
+    transform: translateX(0) translateY(0);
   }
-  
-  h1 {
-    color: var(--main-color);
-    font-size: 3rem;
-    margin-bottom: 20px;
-  }
-  
-  p {
-    color: var(--secondary-color);
-    font-size: 1.5rem;
-    margin-bottom: 30px;
-  }
-  
-  button {
-    background-color: var(--main-color);
-    color: #fff;
-    border: none;
-    border-radius: 30px;
-    padding: 10px 20px;
-    font-size: 1.2rem;
-    cursor: pointer;
-    transition: all 0.3s ease;
-  }
-  
-  button:hover {
-    background-color: var(--secondary-color);
-  }
-  
-  .hearts {
-    position: relative;
-    height: 400px;
-  }
-  
-  .heart {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 50px;
-    height: 50px;
-    background-color: var(--main-color);
-    transform: rotate(45deg);
-    animation: heart 1s ease-out infinite;
-  }
-  
-  .heart::before,
-  .heart::after {
-    content: "";
-    position: absolute;
-    background-color: var(--main-color);
-  }
-  
-  .heart::before {
-    width: 50px;
-    height: 50px;
-    border-radius: 25px 0 0 25px;
-    top: -25px;
-    left: 0;
-  }
-  
-  .heart::after {
-    width: 50px;
-    height: 50px;
-    border-radius: 0 25px 25px 0;
-    top: 0;
-    left: -25px;
-  }
-  
-  @keyframes heart {
-    0% {
-      transform: scale(1) rotate(45deg);
-    }
-    50% {
-      transform: scale(0.6) rotate(45deg);
-    }
-    100% {
-      transform: scale(1) rotate(45deg);
-    }
-  }
-  
-  .hidden {
-    display: none;
-  }
-  
-  #letter {
-    background-color: #f9f9f9;
-    border: 1px solid #ccc;
-    padding: 20px;
-    margin-top: 20px;
-  }
+}
